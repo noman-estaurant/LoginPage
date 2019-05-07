@@ -1,0 +1,46 @@
+</!DOCTYPE html>
+<html>
+<head>
+	<title>user</title>
+	<!--JQuery-->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!--SemanticUI-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+	<!--localCSS-->
+	<link rel="stylesheet" type="text/css" href="src/style.css">
+
+</head>
+<body>
+	<div id="flexbox">
+		<div class="logo"></div>
+		<div class= "text">
+			<h1 class="header">建立帳戶</h1>
+			<h1 class="subtitle">註冊帳戶以便我們為您做好最好的服務！</h1>
+		</div>
+
+		<button class="login-button" id="fb-login">使用FB帳號登入</button>
+		<button class="login-button" id="non-login">免註冊登入</button>
+		<h1>或</h1>
+		<div class="button-box">
+			<button class="circular-button" id="google-login">G</button>
+			<button class="circular-button" id="twitter-login">T</button>
+		</div>
+		<p id="id"></p>
+		<p id="name"></p>
+
+	</div>
+</body>
+<script type="text/javascript">
+	$("#login-submit").click(function(){
+		$.post("/login",{
+			Email: $('#login input[name=Email]').val(),
+			pwd: $('#login input[name=pwd]').val()
+		}
+		, function(data){
+		})
+	})
+
+</script>
+<script src="src/fb-login.js"></script>
+</html>
