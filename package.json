@@ -7,13 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "yklego <lego91003@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "google-auth-library": "^3.1.2",
-    "jquery": "^3.4.0",
+    "jquery": "^3.4.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0"
-  }
+  },
+  "repository": "https://github.com/noman-estaurant/LoginPage.git"
 }
