@@ -10,6 +10,11 @@
 	<!--localCSS-->
 	<link rel="stylesheet" type="text/css" href="src/style.css">
 
+	<!--GoogleMeta-->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="886865227848-iei3i8t1n5arbur2khuvfdjr3jkd2985.apps.googleusercontent.com">
+
+
 </head>
 <body>
 	<div id="flexbox">
@@ -25,25 +30,16 @@
 		<button class="login-button" id="fb-login">使用 Facebook 註冊</button>
 		<button class="login-button" id="non-login">免註冊使用</button>
 		<h1>或</h1>
-		<div class="button-box">
-			<button class="circular-button" id="google-login">G</button>
+		<div class="button-box" >
+			<button class="circular-button g-signin2" id="google-login">G</button>
 			<button class="circular-button" id="twitter-login">T</button>
 		</div>
+		
+		
 		<p id="id"></p>
 		<p id="name"></p>
 
 	</div>
 </body>
-<script type="text/javascript">
-	$("#login-submit").click(function(){
-		$.post("/login",{
-			Email: $('#login input[name=Email]').val(),
-			pwd: $('#login input[name=pwd]').val()
-		}
-		, function(data){
-		})
-	})
-
-</script>
-<script src="src/fb-login.js"></script>
+<script src="src/login.js"></script>
 </html>

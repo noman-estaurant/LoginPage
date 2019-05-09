@@ -59,20 +59,46 @@ window.fbAsyncInit = function () {
 }(document, 'script', 'facebook-jssdk'));
 
 
-$("#fb-login").click(function () {
-    FB.login(function (response) {
+$("#fb-login").click(function (){
+    FB.login(function (response){
         if (response.status === 'connected') {
             FB.api('/me', 'GET', {
-                "fields": "id,name,email,birthday"
+                "fields": "id,name"
             }, function (response) {
                 //FB登入視窗點擊登入後，會將資訊回傳到此處。
                 $("#id").text("id: " + response.id);
                 $("#name").text("name: " + response.name);
-               
-
+                //資訊傳到這裡：
+                $.post("http://luffy.ee.ncku.edu.tw:17785/api/login/facebook",{
+                    name:response.name,
+                    ID:response.id,
+                },function(response){
+                })
             });
         }
     }, {
             scope: 'public_profile,email,user_birthday', return_scopes: true
         });
 });
+
+$("#google-login").click(function(){
+    $('#modaldiv').modal('show')
+
+})
+
+var profile
+var id_token
+function onSignIn(googleUser) {
+  id_token = googleUser.getAuthResponse().id_token;
+  console.log("ID Token: " + id_token);
+ $.ajax({
+      url:'http://luffy.ee.ncku.edu.tw:17785/api/login/google',
+      method:'post',
+      data:{
+        token : id_token,
+        },
+      success:function(data){
+      console.log(data)
+      }
+      })
+}
